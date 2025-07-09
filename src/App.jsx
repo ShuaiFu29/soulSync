@@ -4,6 +4,7 @@ function App() {
   return (
     <>
       <h1>soulSync</h1>
+      <h1>soulSync</h1>
     </>
   )
 }
