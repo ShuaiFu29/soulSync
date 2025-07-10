@@ -159,7 +159,7 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 
 ## 👥 团队
 
-- **开发者**: ShuaiFu29
+- **开发者**: ShuaiFu29,rennana567,XXUZZWZ
 - **项目地址**: https://github.com/ShuaiFu29/soulSync
 
 ---
