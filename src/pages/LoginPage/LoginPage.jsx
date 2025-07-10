@@ -193,7 +193,7 @@ const LoginPage = () => {
                 onClick={() => alert('微信登录功能开发中')}
               >
                 <span className="social-icon">💬</span>
-                微信登录
+                微信
               </Button>
 
               <Button
@@ -203,7 +203,7 @@ const LoginPage = () => {
                 onClick={() => alert('QQ登录功能开发中')}
               >
                 <span className="social-icon">🐧</span>
-                QQ登录
+                QQ
               </Button>
             </div>
           </div>
