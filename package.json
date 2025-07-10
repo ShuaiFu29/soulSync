@@ -11,7 +11,10 @@
     "format": "prettier --write \"src/**/*.{js,jsx,css}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,css}\"",
     "preview": "vite preview",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "deploy": "./deploy.sh",
+    "deploy:quick": "./quick-deploy.sh",
+    "deploy:build": "./deploy.sh --build-only"
   },
   "dependencies": {
     "react": "^19.1.0",
