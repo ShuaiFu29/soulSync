@@ -1,0 +1,470 @@
+/* MessageList 组件样式 */
+
+.message-list {
+  width: 100%;
+}
+
+/* 搜索和过滤工具栏 */
+.message-toolbar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.search-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.search-input-wrapper {
+  position: relative;
+  max-width: 400px;
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--spacing-md) var(--spacing-lg);
+  padding-right: 50px;
+  font-size: var(--font-size-md);
+  border-radius: var(--radius-lg);
+}
+
+.search-icon {
+  position: absolute;
+  right: var(--spacing-lg);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: var(--font-size-lg);
+  color: var(--text-lighter);
+  pointer-events: none;
+}
+
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.filter-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-light);
+  white-space: nowrap;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.filter-btn {
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+}
+
+.clear-filters-btn {
+  margin-left: auto;
+}
+
+/* 结果统计 */
+.results-info {
+  margin-bottom: var(--spacing-lg);
+  padding: 0 var(--spacing-sm);
+}
+
+.results-count {
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+}
+
+/* 留言容器 */
+.messages-container {
+  /* 留言列表容器 */
+}
+
+/* 空状态 */
+.empty-state,
+.no-results {
+  text-align: center;
+  padding: var(--spacing-4xl) var(--spacing-xl);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.empty-icon,
+.no-results-icon {
+  font-size: var(--font-size-4xl);
+  margin-bottom: var(--spacing-lg);
+  opacity: 0.6;
+}
+
+.empty-state h3,
+.no-results h3 {
+  font-size: var(--font-size-xl);
+  color: var(--text-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.empty-state p,
+.no-results p {
+  font-size: var(--font-size-md);
+  color: var(--text-light);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* 加载更多 */
+.load-more-section {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+.load-more-btn {
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  position: relative;
+}
+
+.load-more-btn.loading {
+  color: transparent;
+}
+
+.load-more-btn.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--primary-green);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* 加载指示器 */
+.loading-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+  color: var(--text-light);
+}
+
+.loading-spinner {
+  margin-bottom: var(--spacing-md);
+}
+
+.loading-spinner .spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(76, 175, 80, 0.2);
+  border-top: 3px solid var(--primary-green);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-indicator p {
+  font-size: var(--font-size-md);
+  margin: 0;
+}
+
+/* 留言项动画 */
+.messages-container > * {
+  animation: slideInFromBottom 0.5s ease-out;
+}
+
+.messages-container > *:nth-child(1) {
+  animation-delay: 0s;
+}
+.messages-container > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.messages-container > *:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.messages-container > *:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.messages-container > *:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+/* 搜索高亮 */
+.message-card.search-highlight {
+  border: 2px solid rgba(33, 150, 243, 0.3);
+  background: rgba(33, 150, 243, 0.02);
+}
+
+/* 浮动操作按钮 */
+.message-list .floating-actions {
+  position: fixed;
+  bottom: var(--spacing-2xl);
+  right: var(--spacing-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  z-index: var(--z-overlay);
+}
+
+.floating-action-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+}
+
+.floating-action-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-xl);
+}
+
+/* 分页指示器 */
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-xl);
+}
+
+.pagination-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-lighter);
+  transition: all var(--transition-normal);
+}
+
+.pagination-dot.active {
+  background: var(--primary-green);
+  transform: scale(1.5);
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+  .message-toolbar {
+    padding: var(--spacing-lg);
+  }
+
+  .filter-section {
+    gap: var(--spacing-lg);
+  }
+
+  .clear-filters-btn {
+    margin-left: 0;
+    margin-top: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .message-toolbar {
+    padding: var(--spacing-md);
+  }
+
+  .search-input-wrapper {
+    max-width: 100%;
+  }
+
+  .filter-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+  }
+
+  .filter-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .filter-buttons {
+    flex-wrap: wrap;
+  }
+
+  .clear-filters-btn {
+    width: 100%;
+  }
+
+  .floating-actions {
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+  }
+
+  .floating-action-btn {
+    width: 48px;
+    height: 48px;
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .message-toolbar {
+    padding: var(--spacing-sm);
+  }
+
+  .search-input {
+    padding: var(--spacing-sm) var(--spacing-md);
+    padding-right: 40px;
+    font-size: var(--font-size-sm);
+  }
+
+  .search-icon {
+    right: var(--spacing-md);
+    font-size: var(--font-size-md);
+  }
+
+  .filter-label {
+    font-size: var(--font-size-xs);
+  }
+
+  .empty-state,
+  .no-results {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+
+  .empty-icon,
+  .no-results-icon {
+    font-size: var(--font-size-3xl);
+  }
+
+  .load-more-btn {
+    padding: var(--spacing-md) var(--spacing-xl);
+    width: 100%;
+  }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .message-toolbar {
+    background: rgba(30, 41, 59, 0.8);
+  }
+
+  .empty-state,
+  .no-results {
+    background: rgba(30, 41, 59, 0.6);
+  }
+
+  .search-highlight {
+    border-color: rgba(100, 181, 246, 0.3);
+    background: rgba(100, 181, 246, 0.02);
+  }
+}
+
+/* 高性能模式 */
+@media (prefers-reduced-motion: reduce) {
+  .message-toolbar {
+    animation: none;
+  }
+
+  .empty-state,
+  .no-results {
+    animation: none;
+  }
+
+  .messages-container > * {
+    animation: none;
+  }
+
+  .floating-action-btn:hover {
+    transform: none;
+  }
+
+  .pagination-dot.active {
+    transform: none;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .message-toolbar {
+    border: 2px solid var(--text-color);
+  }
+
+  .search-input {
+    border: 2px solid var(--text-color);
+  }
+
+  .filter-btn {
+    border: 1px solid var(--text-color);
+  }
+}
+
+/* 焦点管理 */
+.search-input:focus-visible,
+.filter-btn:focus-visible,
+.load-more-btn:focus-visible,
+.floating-action-btn:focus-visible {
+  outline: 2px solid var(--primary-green);
+  outline-offset: 2px;
+}
+
+/* 虚拟滚动优化 */
+.message-list.virtual-scroll .messages-container {
+  height: 600px;
+  overflow-y: auto;
+}
+
+.message-list.virtual-scroll .message-card {
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* 筛选标签 */
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.filter-tag {
+  background: rgba(76, 175, 80, 0.1);
+  color: var(--primary-green);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.filter-tag .remove-btn {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: var(--font-size-xs);
+  padding: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-tag .remove-btn:hover {
+  background: rgba(76, 175, 80, 0.2);
+}
