@@ -1,0 +1,360 @@
+/* HeroSection 组件样式 */
+
+.hero-section {
+  flex: 1;
+  padding: var(--spacing-3xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 500px;
+  z-index: var(--z-content);
+  position: relative;
+}
+
+.hero-title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-2xl);
+  line-height: var(--line-height-tight);
+  position: relative;
+}
+
+.hero-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-sm);
+  animation: titleUnderlineGrow 1s ease-out 0.5s forwards;
+}
+
+@keyframes titleUnderlineGrow {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80px;
+  }
+}
+
+.hero-description {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.hero-description p {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-color);
+  margin-bottom: var(--spacing-xl);
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero-description p:last-child {
+  margin-bottom: 0;
+}
+
+.hero-stats {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.hero-join-button {
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  position: relative;
+  overflow: visible;
+}
+
+.hero-join-button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.hero-join-button:hover::before {
+  opacity: 0.3;
+  animation: buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+/* 装饰元素 */
+.hero-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.decoration-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(76, 175, 80, 0.1) 0%,
+    rgba(33, 150, 243, 0.05) 50%,
+    transparent 100%
+  );
+  animation: decorationFloat 6s ease-in-out infinite;
+}
+
+.decoration-circle-1 {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.decoration-circle-2 {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  right: 20%;
+  animation-delay: -3s;
+}
+
+.decoration-line {
+  position: absolute;
+  background: linear-gradient(
+    45deg,
+    rgba(76, 175, 80, 0.2),
+    rgba(33, 150, 243, 0.2)
+  );
+  border-radius: var(--radius-full);
+  animation: decorationSlide 8s ease-in-out infinite;
+}
+
+.decoration-line-1 {
+  width: 2px;
+  height: 100px;
+  top: 15%;
+  right: 15%;
+  animation-delay: -1s;
+}
+
+.decoration-line-2 {
+  width: 2px;
+  height: 60px;
+  bottom: 25%;
+  right: 5%;
+  animation-delay: -4s;
+}
+
+@keyframes decorationFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes decorationSlide {
+  0%,
+  100% {
+    transform: translateX(0) scaleY(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(10px) scaleY(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* 文字打字机效果 */
+.hero-title.typewriter {
+  overflow: hidden;
+  border-right: 3px solid var(--primary-green);
+  white-space: nowrap;
+  animation:
+    typing 3s steps(20, end),
+    blink-caret 0.75s step-end infinite;
+}
+
+/* 段落渐入效果增强 */
+.hero-description p.enhanced-fade {
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.hero-description p.enhanced-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: var(--spacing-2xl);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero-description p {
+    font-size: var(--font-size-md);
+  }
+
+  .decoration-circle-1 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .decoration-circle-2 {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .hero-description {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .hero-description p {
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .hero-stats {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .decoration-circle,
+  .decoration-line {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: var(--spacing-lg);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .hero-description p {
+    font-size: var(--font-size-sm);
+  }
+
+  .hero-join-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .decoration-circle {
+    background: radial-gradient(
+      circle,
+      rgba(100, 181, 246, 0.1) 0%,
+      rgba(129, 199, 132, 0.05) 50%,
+      transparent 100%
+    );
+  }
+
+  .decoration-line {
+    background: linear-gradient(
+      45deg,
+      rgba(100, 181, 246, 0.2),
+      rgba(129, 199, 132, 0.2)
+    );
+  }
+}
+
+/* 高性能模式 */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title::after {
+    animation: none;
+    width: 80px;
+  }
+
+  .hero-description p {
+    opacity: 1;
+    animation: none;
+  }
+
+  .hero-join-button {
+    animation: none;
+  }
+
+  .decoration-circle,
+  .decoration-line {
+    animation: none;
+  }
+
+  .hero-join-button::before {
+    animation: none;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .hero-title {
+    color: var(--text-color);
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
+
+  .decoration-circle,
+  .decoration-line {
+    opacity: 0.8;
+  }
+}
+
+/* 焦点可见性增强 */
+.hero-join-button:focus-visible {
+  outline: 3px solid var(--primary-green);
+  outline-offset: 4px;
+}

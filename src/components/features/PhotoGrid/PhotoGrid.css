@@ -1,0 +1,337 @@
+/* PhotoGrid 组件样式 */
+
+.photo-grid-container {
+  padding: var(--spacing-3xl);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.photo-grid-title {
+  font-size: var(--font-size-2xl);
+  color: var(--dark-green);
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  animation: slideInFromLeft 0.8s ease-out;
+}
+
+.photo-grid-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-sm);
+}
+
+/* 照片网格布局 */
+.photo-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--spacing-lg);
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+/* 照片项目基础样式 */
+.photo-item {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-md);
+}
+
+.photo-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* 大照片样式 */
+.photo-large {
+  grid-row: 1 / 3;
+  background: linear-gradient(135deg, #b2dfdb, #80cbc4);
+  min-height: 400px;
+}
+
+/* 小照片网格 */
+.photo-grid .photo-small:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.photo-grid .photo-small:nth-of-type(3) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.photo-grid .photo-small:nth-of-type(4) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.photo-grid .photo-small:nth-of-type(5) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* 小照片容器 */
+.photo-grid .photo-small {
+  background: linear-gradient(135deg, #bbdefb, #90caf9);
+  min-height: 180px;
+}
+
+/* 照片占位符 */
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: var(--spacing-lg);
+}
+
+.photo-placeholder-icon {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--spacing-md);
+  opacity: 0.7;
+}
+
+.photo-placeholder-text {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  opacity: 0.9;
+}
+
+/* 照片悬停叠加层 */
+.photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  opacity: 0;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--spacing-lg);
+}
+
+.photo-item:hover .photo-overlay {
+  opacity: 1;
+}
+
+.photo-overlay-content {
+  color: var(--white);
+  transform: translateY(20px);
+  transition: transform var(--transition-normal);
+}
+
+.photo-item:hover .photo-overlay-content {
+  transform: translateY(0);
+}
+
+.photo-overlay-content h4 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-sm);
+}
+
+.photo-overlay-content p {
+  font-size: var(--font-size-sm);
+  opacity: 0.9;
+  line-height: var(--line-height-relaxed);
+}
+
+/* 照片加载动画 */
+.photo-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.photo-item:hover::before {
+  left: 100%;
+}
+
+/* 照片边框装饰 */
+.photo-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid transparent;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(45deg, var(--primary-green), var(--primary-blue))
+    border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.photo-item:hover::after {
+  opacity: 0.5;
+}
+
+/* 响应式网格调整 */
+@media (max-width: 1024px) {
+  .photo-grid-container {
+    padding: var(--spacing-2xl);
+  }
+
+  .photo-grid {
+    gap: var(--spacing-md);
+  }
+
+  .photo-large {
+    min-height: 350px;
+  }
+
+  .photo-small {
+    min-height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-grid-container {
+    padding: var(--spacing-xl);
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: var(--spacing-md);
+  }
+
+  .photo-large {
+    grid-row: auto;
+    min-height: 250px;
+  }
+
+  .photo-small {
+    min-height: 200px;
+  }
+
+  .photo-grid-title {
+    font-size: var(--font-size-xl);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-grid-container {
+    padding: var(--spacing-lg);
+  }
+
+  .photo-grid {
+    gap: var(--spacing-sm);
+  }
+
+  .photo-large,
+  .photo-small {
+    min-height: 180px;
+  }
+
+  .photo-placeholder-icon {
+    font-size: var(--font-size-xl);
+  }
+
+  .photo-placeholder-text {
+    font-size: var(--font-size-sm);
+  }
+
+  .photo-overlay-content h4 {
+    font-size: var(--font-size-md);
+  }
+
+  .photo-overlay-content p {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .photo-placeholder {
+    color: rgba(241, 245, 249, 0.8);
+  }
+
+  .photo-overlay {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      transparent 50%,
+      rgba(15, 23, 42, 0.9) 100%
+    );
+  }
+}
+
+/* 高性能模式 */
+@media (prefers-reduced-motion: reduce) {
+  .photo-item {
+    transition: none;
+  }
+
+  .photo-item:hover {
+    transform: none;
+  }
+
+  .photo-overlay,
+  .photo-overlay-content {
+    transition: none;
+  }
+
+  .photo-grid-title,
+  .photo-grid {
+    animation: none;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .photo-item {
+    border: 2px solid var(--text-color);
+  }
+
+  .photo-overlay {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  .photo-placeholder {
+    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

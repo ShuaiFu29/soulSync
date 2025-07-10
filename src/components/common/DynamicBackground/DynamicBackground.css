@@ -1,0 +1,410 @@
+/* DynamicBackground 组件样式 */
+
+.dynamic-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: var(--z-background);
+  overflow: hidden;
+}
+
+/* 动态曲线容器 */
+.dynamic-curves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* 基础曲线样式 */
+.curve {
+  position: absolute;
+  width: 120%;
+  height: 200px;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* 第一条曲线 */
+.curve-1 {
+  top: 10%;
+  background: linear-gradient(
+    90deg,
+    rgba(76, 175, 80, 0.1),
+    rgba(33, 150, 243, 0.1)
+  );
+  transform: rotate(-5deg);
+  animation: curveMove 25s infinite;
+  animation-delay: -5s;
+}
+
+/* 第二条曲线 */
+.curve-2 {
+  top: 30%;
+  background: linear-gradient(
+    90deg,
+    rgba(33, 150, 243, 0.08),
+    rgba(156, 39, 176, 0.08)
+  );
+  transform: rotate(3deg);
+  animation: curveMove 30s infinite;
+  animation-delay: -10s;
+}
+
+/* 第三条曲线 */
+.curve-3 {
+  top: 50%;
+  background: linear-gradient(
+    90deg,
+    rgba(76, 175, 80, 0.06),
+    rgba(255, 193, 7, 0.06)
+  );
+  transform: rotate(-2deg);
+  animation: curveMove 35s infinite;
+  animation-delay: -15s;
+}
+
+/* 第四条曲线 */
+.curve-4 {
+  top: 70%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 152, 0, 0.05),
+    rgba(76, 175, 80, 0.05)
+  );
+  transform: rotate(4deg);
+  animation: curveMove 28s infinite;
+  animation-delay: -20s;
+}
+
+/* 第五条曲线 */
+.curve-5 {
+  top: 85%;
+  background: linear-gradient(
+    90deg,
+    rgba(33, 150, 243, 0.04),
+    rgba(76, 175, 80, 0.04)
+  );
+  transform: rotate(-1deg);
+  animation: curveMove 32s infinite;
+  animation-delay: -25s;
+}
+
+/* 粒子效果 */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(76, 175, 80, 0.6), transparent);
+  border-radius: 50%;
+  animation: particleFloat 8s infinite linear;
+}
+
+/* 粒子位置和动画延迟 */
+.particle-1 {
+  left: 10%;
+  animation-delay: -1s;
+}
+.particle-2 {
+  left: 20%;
+  animation-delay: -2s;
+}
+.particle-3 {
+  left: 30%;
+  animation-delay: -3s;
+}
+.particle-4 {
+  left: 40%;
+  animation-delay: -4s;
+}
+.particle-5 {
+  left: 50%;
+  animation-delay: -5s;
+}
+.particle-6 {
+  left: 60%;
+  animation-delay: -6s;
+}
+.particle-7 {
+  left: 70%;
+  animation-delay: -7s;
+}
+.particle-8 {
+  left: 80%;
+  animation-delay: -8s;
+}
+.particle-9 {
+  left: 90%;
+  animation-delay: -1.5s;
+}
+.particle-10 {
+  left: 15%;
+  animation-delay: -2.5s;
+}
+.particle-11 {
+  left: 25%;
+  animation-delay: -3.5s;
+}
+.particle-12 {
+  left: 35%;
+  animation-delay: -4.5s;
+}
+.particle-13 {
+  left: 45%;
+  animation-delay: -5.5s;
+}
+.particle-14 {
+  left: 55%;
+  animation-delay: -6.5s;
+}
+.particle-15 {
+  left: 65%;
+  animation-delay: -7.5s;
+}
+.particle-16 {
+  left: 75%;
+  animation-delay: -0.5s;
+}
+.particle-17 {
+  left: 85%;
+  animation-delay: -1.2s;
+}
+.particle-18 {
+  left: 95%;
+  animation-delay: -2.8s;
+}
+.particle-19 {
+  left: 5%;
+  animation-delay: -3.8s;
+}
+.particle-20 {
+  left: 95%;
+  animation-delay: -4.8s;
+}
+
+/* 渐变叠加层 */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 249, 255, 0.1) 0%,
+    rgba(232, 245, 233, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+/* 强度变化 */
+.intensity-light .curve {
+  opacity: 0.3;
+}
+
+.intensity-light .particle {
+  opacity: 0.4;
+}
+
+.intensity-light .gradient-overlay {
+  opacity: 0.5;
+}
+
+.intensity-strong .curve {
+  opacity: 0.8;
+}
+
+.intensity-strong .particle {
+  opacity: 0.8;
+}
+
+.intensity-strong .gradient-overlay {
+  opacity: 0.3;
+}
+
+/* 动画定义 */
+@keyframes curveMove {
+  0% {
+    transform: translateX(-100%) rotate(0deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(360deg);
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    top: 100%;
+    opacity: 0;
+    transform: translateX(0) scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(10px) scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-10px) scale(1);
+  }
+  100% {
+    top: -10%;
+    opacity: 0;
+    transform: translateX(0) scale(0);
+  }
+}
+
+/* 呼吸效果 */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+/* 脉冲效果 */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* 波浪效果 */
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* 特殊主题变体 */
+.dynamic-background.theme-ocean {
+  background: linear-gradient(
+    135deg,
+    rgba(3, 169, 244, 0.1) 0%,
+    rgba(0, 150, 136, 0.1) 100%
+  );
+}
+
+.dynamic-background.theme-ocean .curve {
+  background: linear-gradient(
+    90deg,
+    rgba(3, 169, 244, 0.1),
+    rgba(0, 150, 136, 0.1)
+  );
+}
+
+.dynamic-background.theme-sunset {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 183, 77, 0.1) 0%,
+    rgba(255, 111, 97, 0.1) 100%
+  );
+}
+
+.dynamic-background.theme-sunset .curve {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 183, 77, 0.1),
+    rgba(255, 111, 97, 0.1)
+  );
+}
+
+.dynamic-background.theme-forest {
+  background: linear-gradient(
+    135deg,
+    rgba(76, 175, 80, 0.1) 0%,
+    rgba(139, 195, 74, 0.1) 100%
+  );
+}
+
+.dynamic-background.theme-forest .curve {
+  background: linear-gradient(
+    90deg,
+    rgba(76, 175, 80, 0.1),
+    rgba(139, 195, 74, 0.1)
+  );
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .curve {
+    height: 150px;
+    opacity: 0.4;
+  }
+
+  .particle {
+    width: 3px;
+    height: 3px;
+  }
+
+  .particles {
+    display: none; /* 移动端隐藏粒子以提升性能 */
+  }
+}
+
+@media (max-width: 480px) {
+  .curve {
+    height: 100px;
+    opacity: 0.3;
+  }
+}
+
+/* 高性能模式 */
+@media (prefers-reduced-motion: reduce) {
+  .curve {
+    animation: none;
+    opacity: 0.2;
+  }
+
+  .particle {
+    animation: none;
+    display: none;
+  }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .curve {
+    opacity: 0.3;
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.2) 0%,
+      rgba(30, 41, 59, 0.2) 100%
+    );
+  }
+
+  .particle {
+    background: radial-gradient(circle, rgba(100, 181, 246, 0.6), transparent);
+  }
+}

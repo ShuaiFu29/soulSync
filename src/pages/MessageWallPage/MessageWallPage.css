@@ -1,0 +1,436 @@
+/* MessageWallPage 样式 */
+
+.message-wall-page {
+  /* 留言墙页面特定样式 */
+}
+
+.message-wall-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  padding: var(--spacing-2xl) 0;
+}
+
+.page-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-sm);
+  animation: titleUnderlineGrow 1s ease-out 0.5s both;
+}
+
+@keyframes titleUnderlineGrow {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80px;
+  }
+}
+
+.page-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-light);
+  margin: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: var(--line-height-relaxed);
+}
+
+.message-wall-content {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.message-form-section {
+  margin-bottom: var(--spacing-2xl);
+  animation: slideInFromTop 0.8s ease-out 0.2s both;
+}
+
+.message-list-section {
+  animation: slideInFromBottom 0.8s ease-out 0.4s both;
+}
+
+/* 页面统计信息 */
+.page-stats {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2xl);
+  padding: var(--spacing-xl);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  animation: slideInFromBottom 0.8s ease-out 0.6s both;
+}
+
+.page-stats .stat-item {
+  text-align: center;
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+}
+
+.page-stats .stat-item:hover {
+  background: rgba(76, 175, 80, 0.1);
+  transform: translateY(-2px);
+}
+
+.page-stats .stat-number {
+  display: block;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--spacing-xs);
+}
+
+.page-stats .stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 页面装饰元素 */
+.message-wall-container::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(76, 175, 80, 0.1) 0%,
+    rgba(33, 150, 243, 0.05) 50%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.message-wall-container::after {
+  content: '';
+  position: absolute;
+  bottom: 15%;
+  left: 8%;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle,
+    rgba(33, 150, 243, 0.1) 0%,
+    rgba(76, 175, 80, 0.05) 50%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  animation-delay: -3s;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 滚动到顶部按钮 */
+.scroll-to-top {
+  position: fixed;
+  bottom: var(--spacing-2xl);
+  right: var(--spacing-2xl);
+  width: 48px;
+  height: 48px;
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-lg);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all var(--transition-normal);
+  z-index: var(--z-overlay);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* 页面加载状态 */
+.message-wall-page.loading {
+  pointer-events: none;
+}
+
+.message-wall-page.loading::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-wall-page.loading::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 4px solid rgba(76, 175, 80, 0.2);
+  border-top: 4px solid var(--primary-green);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: var(--z-modal);
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+  .message-wall-container {
+    max-width: 90%;
+    padding: var(--spacing-lg);
+  }
+
+  .page-stats {
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .message-wall-container {
+    max-width: 100%;
+    padding: var(--spacing-md);
+  }
+
+  .page-header {
+    margin-bottom: var(--spacing-2xl);
+    padding: var(--spacing-lg) 0;
+  }
+
+  .page-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .page-subtitle {
+    font-size: var(--font-size-md);
+  }
+
+  .page-stats {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+  }
+
+  .page-stats .stat-item {
+    padding: var(--spacing-sm);
+  }
+
+  .scroll-to-top {
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    width: 44px;
+    height: 44px;
+    font-size: var(--font-size-md);
+  }
+
+  .message-wall-container::before,
+  .message-wall-container::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-wall-container {
+    padding: var(--spacing-sm);
+  }
+
+  .page-title {
+    font-size: var(--font-size-xl);
+  }
+
+  .page-subtitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .page-stats {
+    padding: var(--spacing-md);
+  }
+
+  .page-stats .stat-number {
+    font-size: var(--font-size-xl);
+  }
+
+  .page-stats .stat-label {
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  .page-stats {
+    background: rgba(30, 41, 59, 0.7);
+  }
+
+  .message-wall-container::before {
+    background: radial-gradient(
+      circle,
+      rgba(100, 181, 246, 0.1) 0%,
+      rgba(129, 199, 132, 0.05) 50%,
+      transparent 100%
+    );
+  }
+
+  .message-wall-container::after {
+    background: radial-gradient(
+      circle,
+      rgba(129, 199, 132, 0.1) 0%,
+      rgba(100, 181, 246, 0.05) 50%,
+      transparent 100%
+    );
+  }
+
+  .message-wall-page.loading::before {
+    background: rgba(15, 23, 42, 0.8);
+  }
+}
+
+/* 高性能模式 */
+@media (prefers-reduced-motion: reduce) {
+  .message-wall-container {
+    animation: none;
+  }
+
+  .page-title::after {
+    animation: none;
+    width: 80px;
+  }
+
+  .message-form-section,
+  .message-list-section,
+  .page-stats {
+    animation: none;
+  }
+
+  .message-wall-container::before,
+  .message-wall-container::after {
+    animation: none;
+  }
+
+  .page-stats .stat-item:hover {
+    transform: none;
+  }
+
+  .scroll-to-top:hover {
+    transform: none;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .page-stats {
+    border: 2px solid var(--text-color);
+  }
+
+  .page-title {
+    color: var(--text-color);
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
+
+  .page-stats .stat-number {
+    color: var(--text-color);
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+  }
+}
+
+/* 打印样式 */
+@media print {
+  .message-wall-page {
+    background: white;
+  }
+
+  .scroll-to-top,
+  .message-wall-container::before,
+  .message-wall-container::after {
+    display: none;
+  }
+
+  .page-stats {
+    background: white;
+    border: 1px solid #000;
+  }
+}
+
+/* 焦点管理 */
+.message-wall-container:focus-within {
+  outline: none;
+}
+
+.scroll-to-top:focus-visible {
+  outline: 2px solid var(--primary-green);
+  outline-offset: 2px;
+}
+
+/* 内容区域边距调整 */
+.message-wall-content > *:not(:last-child) {
+  margin-bottom: var(--spacing-xl);
+}
+
+/* 空状态样式增强 */
+.message-wall-container .empty-state {
+  margin: var(--spacing-4xl) 0;
+}
+
+/* 页面进入动画序列 */
+.message-wall-container > * {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.message-wall-container > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.message-wall-container > *:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.message-wall-container > *:nth-child(3) {
+  animation-delay: 0.5s;
+}
