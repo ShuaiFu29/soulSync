@@ -1,7 +1,8 @@
 /* LoginPage 样式 */
 
 .login-page {
-  /* 登录页面特定样式 */
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.05) 0%, rgba(33, 150, 243, 0.05) 100%);
+  min-height: 100vh;
 }
 
 .login-container {
@@ -15,8 +16,8 @@
 
 .login-card {
   width: 100%;
-  max-width: 420px;
-  padding: var(--spacing-3xl);
+  max-width: 480px;
+  padding: var(--spacing-2xl) var(--spacing-3xl);
   position: relative;
   z-index: var(--z-content);
   animation: scaleIn 0.6s ease-out;
@@ -24,7 +25,7 @@
 
 .login-header {
   text-align: center;
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-2xl);
 }
 
 .login-title {
@@ -40,11 +41,11 @@
 }
 
 .login-form {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .form-group {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .form-label {
@@ -57,20 +58,14 @@
 
 .form-input {
   width: 100%;
-  padding: var(--spacing-lg);
   font-size: var(--font-size-md);
+  padding: var(--spacing-lg);
   border-radius: var(--radius-lg);
-  transition: all var(--transition-normal);
-  outline: none;
 }
 
 .form-input.error {
-  border-color: #ef4444;
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-}
-
-.form-input:focus {
-  transform: translateY(-1px);
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
 }
 
 .field-error {
@@ -85,7 +80,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-lg);
 }
 
 .checkbox-label {
@@ -144,12 +139,13 @@
   width: 100%;
   justify-content: center;
   font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-xl);
 }
 
 .login-footer {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
 }
 
 .register-prompt {
@@ -175,12 +171,12 @@
 
 .social-login {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
 }
 
 .divider {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
   position: relative;
 }
 
@@ -203,18 +199,19 @@
 
 .social-buttons {
   display: flex;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
 }
 
 .social-btn {
   flex: 1;
   justify-content: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   font-size: var(--font-size-sm);
+  padding: var(--spacing-md);
 }
 
 .social-icon {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-md);
 }
 
 .error-message {
@@ -228,7 +225,7 @@
   animation: fadeInUp 0.3s ease-out;
 }
 
-/* 装饰元素 */
+/* 装饰元素 - 简化版 */
 .login-decorations {
   position: absolute;
   top: 0;
@@ -237,6 +234,7 @@
   bottom: 0;
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
 }
 
 .decoration-circle {
@@ -252,19 +250,21 @@
 }
 
 .decoration-1 {
-  width: 150px;
-  height: 150px;
-  top: 10%;
-  left: 10%;
+  width: 120px;
+  height: 120px;
+  top: 15%;
+  left: 8%;
   animation-delay: 0s;
+  opacity: 0.6;
 }
 
 .decoration-2 {
-  width: 100px;
-  height: 100px;
-  bottom: 15%;
-  right: 15%;
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  right: 12%;
   animation-delay: -3s;
+  opacity: 0.4;
 }
 
 .decoration-line {
@@ -279,11 +279,12 @@
 }
 
 .decoration-3 {
-  width: 3px;
-  height: 120px;
-  top: 20%;
-  right: 8%;
+  width: 2px;
+  height: 100px;
+  top: 25%;
+  right: 6%;
   animation-delay: -2s;
+  opacity: 0.3;
 }
 
 /* 加载状态动画 */
@@ -333,7 +334,7 @@
 
   .login-card {
     max-width: 100%;
-    padding: var(--spacing-2xl);
+    padding: var(--spacing-xl) var(--spacing-2xl);
   }
 
   .login-title {
@@ -363,7 +364,7 @@
   }
 
   .login-card {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
   }
 
   .login-title {
