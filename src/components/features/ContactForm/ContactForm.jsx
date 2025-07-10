@@ -217,7 +217,7 @@ const ContactForm = ({ onSubmit, className = '' }) => {
                 name="category"
                 value={formData.category}
                 onChange={handleInputChange}
-                className="form-select input-glass"
+                className="input-glass select"
               >
                 {categories.map(category => (
                   <option key={category.value} value={category.value}>
