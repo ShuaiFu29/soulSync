@@ -59,6 +59,7 @@
   0% {
     transform: translateX(-100%) rotate(0deg);
   }
+
   100% {
     transform: translateX(100%) rotate(360deg);
   }
@@ -127,7 +128,8 @@
   z-index: 1;
   display: flex;
   width: 100%;
-  height: calc(100vh - 90px); /* 减去导航栏高度 */
+  height: calc(100vh - 90px);
+  /* 减去导航栏高度 */
 }
 
 /* 活动照片区域 */
@@ -276,12 +278,10 @@
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0) 100%);
   transform: rotate(30deg);
   animation: shine 6s infinite;
 }
@@ -290,7 +290,9 @@
   0% {
     transform: translateX(-100%) rotate(30deg);
   }
-  20%, 100% {
+
+  20%,
+  100% {
     transform: translateX(100%) rotate(30deg);
   }
 }

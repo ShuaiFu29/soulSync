@@ -1,7 +1,7 @@
 import React from 'react';
-import './HomePage.css';
+import './Home.css';
 
-const HomePage = ({ onNavigate }) => {
+const Home = ({ onNavigate }) => {
   return (
     <div className="homepage-container">
       {/* 动态曲线背景 */}
@@ -69,4 +69,4 @@ const HomePage = ({ onNavigate }) => {
   );
 };
 
-export default HomePage;
+export default Home
